@@ -5,3 +5,7 @@ For vendor:
     
 For .env
         base64:vqdWF2NUOjiV0IANV0GCeaD0f1ySac0oiRIzi8phtxc=
+        
+Excution:
+        1)empleado_crud
+        2)crud_step1
