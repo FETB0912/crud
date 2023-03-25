@@ -16,7 +16,7 @@ use App\Http\Controllers\EmpleadoController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 //CRUD
@@ -28,4 +28,15 @@ Route::get('/', function () {
 //Route::get('/empleado/create',[EmpleadoController::class,'create']);
 
 //Acceder a todas las URLS trabajando con todos los metodos
-Route::resource('empleado', EmpleadoController::class);
+Route::resource('empleado', EmpleadoController::class)->middleware('auth');
+Auth::routes(['register'=>false,'reset'=>false]);
+
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [EmpleadoController::class, 'index'])->name('home');
+
+
+Route::group(['middleware' => 'auth'], function () {
+    //redirecciona al home controller al hacer middel
+    Route::get('/', [EmpleadoController::class, 'index'])->name('home');
+
+});
