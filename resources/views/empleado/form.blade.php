@@ -1,5 +1,5 @@
 
-
+<h1>  {{ $modo }} empleado </h1>
 <br>
 <label for="Nombre"> Nombre </label>
 <input type="text" name="Nombre" value="{{ isset($empleado->Nombre)?$empleado->Nombre:'' }}" id="Nombre">
