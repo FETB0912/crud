@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+//acceder al controlador
+use App\Http\Controllers\EmpleadoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//CRUD
+//Route::get('/empleado', function () {
+    //return view('empleado.index');
+//});
+
+//vista --- controlador ----clase --metodo ----acceder
+//Route::get('/empleado/create',[EmpleadoController::class,'create']);
+
+//Acceder a todas las URLS trabajando con todos los metodos
+Route::resource('empleado', EmpleadoController::class);
